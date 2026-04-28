@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gmail-email-service
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GMAIL_USER
+        sync: false          # Set manually in Render dashboard
+      - key: GMAIL_APP_PASSWORD
+        sync: false          # Set manually in Render dashboard
